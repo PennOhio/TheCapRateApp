@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homePageFragment">
+
+    <fragment
+        android:id="@+id/mainInputFragment"
+        android:name="com.example.remvp4.ui.inputs.main.MainInputFragment"
+        android:label="main_input_fragment"
+        tools:layout="@layout/main_input_fragment" >
+        <action
+            android:id="@+id/action_mainInputFragment_to_resultsFragment"
+            app:destination="@id/resultsFragment" />
+        <action
+            android:id="@+id/action_mainInputFragment_to_expenseRatio"
+            app:destination="@id/expenseRatio" />
+        <action
+            android:id="@+id/action_mainInputFragment_to_renovationExpenses"
+            app:destination="@id/renovationExpenses" />
+        <argument android:name="property"
+            app:argType="com.example.remvp4.data.local.Property" />
+        <action
+            android:id="@+id/action_mainInputFragment_to_homePageFragment"
+            app:destination="@id/homePageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultsFragment"
+        android:name="com.example.remvp4.ui.results.ResultsFragment"
+        android:label="results_fragment"
+        tools:layout="@layout/results_fragment" >
+        <action
+            android:id="@+id/action_resultsFragment_to_mainInputFragment"
+            app:destination="@id/mainInputFragment" />
+        <argument
+            android:name="property"
+            app:argType="com.example.remvp4.data.local.Property" />
+    </fragment>
+    <fragment
+        android:id="@+id/expenseRatio"
+        android:name="com.example.remvp4.ui.inputs.recurringExpenses.ExpenseRatioFragment"
+        android:label="expense_ratio_fragment"
+        tools:layout="@layout/expense_ratio_fragment" >
+        <action
+            android:id="@+id/action_expenseRatio_to_mainInputFragment"
+            app:destination="@id/mainInputFragment" />
+        <argument
+            android:name="property"
+            app:argType="com.example.remvp4.data.local.Property" />
+    </fragment>
+    <fragment
+        android:id="@+id/renovationExpenses"
+        android:name="com.example.remvp4.ui.inputs.renovationExpenses.RenovationExpensesFragment"
+        android:label="renovation_expenses_fragment"
+        tools:layout="@layout/renovation_expenses_fragment" >
+        <action
+            android:id="@+id/action_renovationExpenses_to_mainInputFragment"
+            app:destination="@id/mainInputFragment" />
+        <argument
+            android:name="property"
+            app:argType="com.example.remvp4.data.local.Property" />
+    </fragment>
+    <fragment
+        android:id="@+id/homePageFragment"
+        android:name="com.example.remvp4.ui.homePage.HomePageFragment"
+        android:label="home_page_fragment"
+        tools:layout="@layout/home_page_fragment" >
+        <action
+            android:id="@+id/action_homePageFragment_to_mainInputFragment"
+            app:destination="@id/mainInputFragment" />
+    </fragment>
+</navigation>
